@@ -99,7 +99,7 @@ const SearchPage = () => {
 
         </div>
         {results.data.map((restaurant) => (
-          <div className='mb-40'>
+          <div>
             <SearchResultCard restaurant={restaurant} />
           </div>
         ))}

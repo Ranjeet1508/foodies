@@ -23,12 +23,12 @@ export type CartItem = {
 const DetailPage = () => {
     const { restaurantId } = useParams();
     const { restaurant, isLoading } = useGetRestaurant(restaurantId);
-    const {createCheckoutSession, isLoading: isCheckoutLoading} = useCreateCheckoutSession();
+    const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
 
     const [cartItems, setCartItems] = useState<CartItem[]>(() => {
         const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
 
-        return storedCartItems ? JSON.parse(storedCartItems): [];
+        return storedCartItems ? JSON.parse(storedCartItems) : [];
     });
 
     const addToCart = (menuItem: MenuItem) => {
@@ -82,8 +82,8 @@ const DetailPage = () => {
         });
     }
 
-    const onCheckout = async(userFormData:UserFormData) => {
-        if(!restaurant){
+    const onCheckout = async (userFormData: UserFormData) => {
+        if (!restaurant) {
             return;
         }
 
@@ -97,7 +97,7 @@ const DetailPage = () => {
             deliveryDetails: {
                 name: userFormData.name,
                 addressLine1: userFormData.addressLine1,
-                city:userFormData.city,
+                city: userFormData.city,
                 country: userFormData.country,
                 email: userFormData.email as string
             }
@@ -113,11 +113,16 @@ const DetailPage = () => {
 
     return (
         <div className="flex flex-col gap-10">
-            <AspectRatio ratio={16 / 5}>
-                <img className="rounded-md object-cover h-full w-full"
-                    src={restaurant.imageUrl}
-                    alt="restaurant-detail-img" />
-            </AspectRatio>
+            <div className="flex justify-center px-4">
+                <div className="w-full max-w-xl"> {/* Adjust max width here */}
+                    <AspectRatio ratio={16 / 9}>
+                        <img className="rounded-md object-cover h-full w-full"
+                            src={restaurant.imageUrl}
+                            alt="restaurant-detail-img" />
+                    </AspectRatio>
+                </div>
+            </div>
+
 
             <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
                 <div className="flex flex-col gap-4">
@@ -137,10 +142,10 @@ const DetailPage = () => {
                         />
                     </Card>
                     <CardFooter>
-                        <CheckoutButton 
-                        disabled={cartItems.length===0} 
-                        onCheckout={onCheckout} 
-                        isLoading={isCheckoutLoading}
+                        <CheckoutButton
+                            disabled={cartItems.length === 0}
+                            onCheckout={onCheckout}
+                            isLoading={isCheckoutLoading}
                         />
                     </CardFooter>
                 </div>
