@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ManageRestaurantPage from "./Pages/ManageRestaurantPage";
 import SearchPage from "./Pages/SearchPage";
 import DetailPage from "./Pages/DetailPage";
+import OrderStatusPage from "./Pages/OrderStatusPage";
 
 const AppRoutes = () => {
     return (
@@ -30,6 +31,10 @@ const AppRoutes = () => {
             </Route>
             <Route element={<ProtectedRoute />}>
                 <Route path='/manage-restaurant' element={<Layout><ManageRestaurantPage /></Layout>} />
+            </Route>
+
+            <Route element={<ProtectedRoute />}>
+                <Route path='/order-status' element={<Layout><OrderStatusPage /></Layout>} />
             </Route>
 
             <Route path='/*' element={<Navigate to="/" />} />
