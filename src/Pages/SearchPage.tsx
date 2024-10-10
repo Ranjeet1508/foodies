@@ -93,10 +93,9 @@ const SearchPage = () => {
           placeHolder='search by cuisine or restaurant name'
           onReset={resetSearch}
         />
-        <div className="flex justify-between flex-col gap-3 lg:flex-row">
+        <div className="flex justify-between flex-col gap-3 lg:flex-row lg:px-5 px-10">
           <SearchResultInfo total={results.pagination.total} city={city} />
           <SortOptionDropdown sortOption={searchState.sortOption} onChange={(value) => setSortOption(value)} />
-
         </div>
         {results.data.map((restaurant) => (
           <div>
