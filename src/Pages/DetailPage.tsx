@@ -112,7 +112,7 @@ const DetailPage = () => {
     }
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 px-5 md:px-0">
             <div className="flex justify-center px-4">
                 <div className="w-full max-w-xl"> {/* Adjust max width here */}
                     <AspectRatio ratio={16 / 9}>

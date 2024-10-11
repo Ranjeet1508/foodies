@@ -15,11 +15,14 @@ type Props = {
 const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
 
     const getTotalCost = () => {
+        if(cartItems.length===0){
+            return null
+        }
         const totalInRupees = cartItems.reduce((total, cartItem) => total + cartItem.price * cartItem.quantity, 0)
 
         const totalWithDelivery = totalInRupees + restaurant.deliveryPrice;
 
-        return totalWithDelivery.toFixed(2);
+        return `$${totalWithDelivery.toFixed(2)}`;
     }
 
     return (
@@ -27,7 +30,7 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
             <CardHeader>
                 <CardTitle className='text-2xl font-bold tracking-tight flex justify-between'>
                     <span>Your Order</span>
-                    <span>${getTotalCost()}</span>
+                    <span>{getTotalCost()}</span>
                 </CardTitle>
             </CardHeader>
             <CardContent className='flex flex-col gap-5'>

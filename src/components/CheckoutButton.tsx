@@ -30,7 +30,7 @@ const CheckoutButton = ({onCheckout, disabled, isLoading}: Props) => {
     }
 
     if (!isAuthenticated) {
-        return <Button onClick={onLogin} className='bg-orange-500 flex-1'>Log in to Checkout</Button>
+        return <Button onClick={onLogin} className='bg-orange-500 flex-1 mt-2'>Log in to Checkout</Button>
     }
 
     if (isAuthLoading || !currentUser || isLoading) {
@@ -41,7 +41,7 @@ const CheckoutButton = ({onCheckout, disabled, isLoading}: Props) => {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button disabled={disabled} className='bg-orange-500 flex-1'>Go to checkout</Button>
+                <Button disabled={disabled} className='bg-orange-500 flex-1 mt-2'>Go to checkout</Button>
             </DialogTrigger>
             <DialogContent className='max-w-[425px] md:min-w-[700px] bg-gray-50'>
                 <UserProfileForm

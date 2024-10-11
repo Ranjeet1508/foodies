@@ -21,15 +21,19 @@ const OrderStatusPage = () => {
       {orders.map((order) => (
         <div className="space-y-10 bg-gray-50 p-10 rounded-lg">
           <OrderStatusHeader order={order} />
-          <OrderStatusDetail order={order} />
 
-          <AspectRatio ratio={16 / 5}>
-            <img
-              src={order.restaurant.imageUrl}
-              className="rounded-md object-cover h-full w-full" alt=""
-            />
-          </AspectRatio>
-          <div className="grid gap-10 md:grid-cols-2"></div>
+          
+          <div className="grid gap-10 md:grid-cols-2">
+            <OrderStatusDetail order={order} />
+            <AspectRatio ratio={16 / 5}>
+              <img
+                src={order.restaurant.imageUrl}
+                className="rounded-md object-cover h-full w-full" alt=""
+              />
+            </AspectRatio>
+          </div>
+
+
         </div>
       ))}
     </div>
