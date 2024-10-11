@@ -98,7 +98,7 @@ const SearchPage = () => {
           <SortOptionDropdown sortOption={searchState.sortOption} onChange={(value) => setSortOption(value)} />
         </div>
         {results.data.map((restaurant) => (
-          <div>
+          <div className="px-5 lg:-mb-10 sm:mt-5 sm:mb-20">
             <SearchResultCard restaurant={restaurant} />
           </div>
         ))}
