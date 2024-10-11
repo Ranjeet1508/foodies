@@ -124,7 +124,7 @@ const ManagaeRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 bg-gray-50 rounded-lg' >
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 bg-gray-50 rounded-lg px-2' >
                 <DetailsSection />
                 <Separator />
                 <CuisinesSection />
@@ -132,7 +132,7 @@ const ManagaeRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
                 <MenuSection />
                 <Separator />
                 <ImageSection />
-                <div className='px-20'>
+                <div>
                     {isLoading ? <LoadingButton /> : <Button type='submit'>Submit</Button>}
                 </div>
             </form>

@@ -5,7 +5,7 @@ import { useFormContext } from 'react-hook-form'
 const DetailsSection = () => {
     const { control } = useFormContext();
     return (
-        <div className='space-y-2 px-20'>
+        <div className='space-y-2'>
             <div>
                 <h2 className='text-2xl font-bold'>Details</h2>
                 <FormDescription>

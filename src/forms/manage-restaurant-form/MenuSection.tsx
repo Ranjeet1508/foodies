@@ -10,7 +10,7 @@ const MenuSection = () => {
         name: "menuItems",
     })
     return (
-        <div className='space-y-2 px-20'>
+        <div className='space-y-2'>
             <div>
                 <h2 className='text-2xl font-bold'>Menu</h2>
                 <FormDescription>
